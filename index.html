@@ -2,20 +2,32 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guide Ubuntu par Cylian</title>
 <style>
-body{margin:0;font-family:arial;background:#1a1a2e;color:white}
-header{background:#6a0dad;padding:30px;text-align:center}
-h1{margin:0;font-size:40px}
-.etape{background:#16213e;margin:20px;padding:20px;border-radius:10px;border-left:5px solid #6a0dad}
-.etape h2{color:#a855f7}
-code{background:#000;padding:5px 10px;border-radius:5px;color:#00ff00;display:block;margin:10px 0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:arial;background:#1a1a2e;color:white}
+header{background:linear-gradient(135deg,#6a0dad,#a855f7);padding:40px 20px;text-align:center}
+h1{font-size:clamp(24px,5vw,45px)}
+.etape{background:#16213e;margin:15px;padding:20px;border-radius:10px;border-left:5px solid #a855f7}
+.etape h2{color:#a855f7;margin-bottom:10px;font-size:clamp(16px,3vw,22px)}
+code{background:#000;padding:8px 12px;border-radius:5px;color:#00ff00;display:block;margin:8px 0;font-size:14px;overflow-x:auto}
+p{line-height:1.6;font-size:clamp(14px,2vw,16px)}
 </style>
 </head>
 <body>
 <header><h1>🐧 Guide Ubuntu par Cylian</h1><p>Installer Linux comme un pro</p></header>
-<div class="etape"><h2>Étape 1 — Démarrer sur la clé USB</h2><p>Branche la clé et appuie sur F12 au démarrage</p></div>
-<div class="etape"><h2>Étape 2 — Lancer l'installation</h2><p>Clique sur "Installer Ubuntu" sur le bureau</p></div>
-<div class="etape"><h2>Étape 3 — Commandes utiles</h2><code>sudo apt install nomdulogiciel</code><code>fastfetch</code><code>cmatrix</code></div>
+<div class="etape"><h2>Étape 1 — Préparer la clé USB</h2><p>Télécharge Ubuntu sur ubuntu.com et utilise le Créateur de disque de démarrage pour copier Ubuntu sur ta clé USB.</p></div>
+<div class="etape"><h2>Étape 2 — Démarrer sur la clé</h2><p>Branche la clé USB, allume le PC et appuie rapidement sur F12. Sélectionne ta clé USB dans le menu.</p></div>
+<div class="etape"><h2>Étape 3 — Installer Ubuntu</h2><p>Clique sur "Installer Ubuntu", choisis le français, connecte le wifi et clique sur "Effacer le disque et installer Ubuntu". Attends 15-20 minutes.</p></div>
+<div class="etape"><h2>Commandes utiles 💻</h2>
+<code>fastfetch — infos du PC</code>
+<code>cmatrix — effet Matrix</code>
+<code>sudo apt install nomdulogiciel — installer un logiciel</code>
+<code>ls — voir les fichiers</code>
+<code>cd nomdudossier — ouvrir un dossier</code>
+<code>pwd — savoir où tu es</code>
+<code>clear — effacer le terminal</code>
+</div>
 </body>
 </html>
