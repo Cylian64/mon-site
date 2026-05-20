@@ -3,31 +3,154 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guide Ubuntu par Cylian</title>
+<title>Guide Ubuntu & Python par Cylian</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:arial;background:#1a1a2e;color:white}
-header{background:linear-gradient(135deg,#6a0dad,#a855f7);padding:40px 20px;text-align:center}
-h1{font-size:clamp(24px,5vw,45px)}
-.etape{background:#16213e;margin:15px;padding:20px;border-radius:10px;border-left:5px solid #a855f7}
-.etape h2{color:#a855f7;margin-bottom:10px;font-size:clamp(16px,3vw,22px)}
-code{background:#000;padding:8px 12px;border-radius:5px;color:#00ff00;display:block;margin:8px 0;font-size:14px;overflow-x:auto}
-p{line-height:1.6;font-size:clamp(14px,2vw,16px)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:arial;background:#0d1117;color:#fff;overflow-x:hidden}
+nav{background:#161b22;padding:15px 20px;position:sticky;top:0;z-index:100;display:flex;gap:20px;justify-content:center;border-bottom:2px solid #a855f7}
+nav a{color:#a855f7;text-decoration:none;font-weight:bold;transition:0.3s}
+nav a:hover{color:#fff}
+header{background:linear-gradient(135deg,#1a0533,#6a0dad);padding:60px 20px;text-align:center;animation:fadeIn 1s}
+h1{font-size:clamp(24px,5vw,50px);margin-bottom:10px}
+.badge{background:#a855f7;padding:5px 15px;border-radius:20px;font-size:14px}
+section{padding:40px 20px;max-width:800px;margin:0 auto}
+.card{background:#161b22;border-radius:12px;padding:25px;margin:20px 0;border-left:4px solid #a855f7;animation:slideIn 0.5s;transition:transform 0.3s}
+.card:hover{transform:translateX(5px)}
+.card h2{color:#a855f7;margin-bottom:15px}
+.card p{line-height:1.8;color:#ccc;margin-bottom:10px}
+code{background:#0d1117;color:#00ff88;padding:8px 15px;border-radius:8px;display:block;margin:10px 0;font-size:14px}
+.quiz{background:#161b22;border-radius:12px;padding:25px;margin:20px 0}
+.quiz h3{color:#a855f7;margin-bottom:15px}
+.btn{background:#a855f7;color:#fff;border:none;padding:12px 25px;border-radius:8px;cursor:pointer;margin:5px;font-size:16px;transition:0.3s}
+.btn:hover{background:#7c3aed}
+.result{margin-top:15px;padding:15px;border-radius:8px;display:none}
+.correct{background:#064e3b;color:#00ff88}
+.wrong{background:#450a0a;color:#ff4444}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
 </style>
 </head>
 <body>
-<header><h1>🐧 Guide Ubuntu par Cylian</h1><p>Installer Linux comme un pro</p></header>
-<div class="etape"><h2>Étape 1 — Préparer la clé USB</h2><p>Télécharge Ubuntu sur ubuntu.com et utilise le Créateur de disque de démarrage pour copier Ubuntu sur ta clé USB.</p></div>
-<div class="etape"><h2>Étape 2 — Démarrer sur la clé</h2><p>Branche la clé USB, allume le PC et appuie rapidement sur F12. Sélectionne ta clé USB dans le menu.</p></div>
-<div class="etape"><h2>Étape 3 — Installer Ubuntu</h2><p>Clique sur "Installer Ubuntu", choisis le français, connecte le wifi et clique sur "Effacer le disque et installer Ubuntu". Attends 15-20 minutes.</p></div>
-<div class="etape"><h2>Commandes utiles 💻</h2>
-<code>fastfetch — infos du PC</code>
-<code>cmatrix — effet Matrix</code>
-<code>sudo apt install nomdulogiciel — installer un logiciel</code>
-<code>ls — voir les fichiers</code>
-<code>cd nomdudossier — ouvrir un dossier</code>
-<code>pwd — savoir où tu es</code>
-<code>clear — effacer le terminal</code>
-</div>
+<nav>
+  <a href="#ubuntu">🐧 Ubuntu</a>
+  <a href="#python">🐍 Python</a>
+  <a href="#quiz">🎮 Quiz</a>
+</nav>
+<header>
+  <h1>🐧 Guide Ubuntu & Python</h1>
+  <p>par Cylian</p><br>
+  <span class="badge">Apprends Linux et Python facilement</span>
+</header>
+
+<section id="ubuntu">
+  <div class="card">
+    <h2>Étape 1 — Créer la clé USB</h2>
+    <p>Télécharge Ubuntu sur <strong>ubuntu.com</strong> puis ouvre le <strong>Créateur de disque de démarrage</strong> dans les applications.</p>
+    <p>Sélectionne le fichier ISO téléchargé, sélectionne ta clé USB et clique sur <strong>Créer le disque de démarrage</strong>. Attends 10-15 minutes.</p>
+  </div>
+  <div class="card">
+    <h2>Étape 2 — Démarrer sur la clé</h2>
+    <p>Branche la clé USB sur le PC cible. Allume le PC et appuie rapidement sur <strong>F2</strong> pour accéder au BIOS.</p>
+    <p>Va dans <strong>Boot</strong>, désactive le <strong>Secure Boot</strong> dans Security, sauvegarde avec <strong>F10</strong> et redémarre. Le menu Ubuntu apparaît !</p>
+  </div>
+  <div class="card">
+    <h2>Étape 3 — Installer Ubuntu</h2>
+    <p>Clique sur <strong>Install Ubuntu</strong>, choisis <strong>Interactive Installation</strong>, puis <strong>Default</strong>, coche les deux cases de logiciels, choisis <strong>Erase disk</strong> et suis les étapes.</p>
+    <p>L'installation dure environ <strong>15-20 minutes</strong>. Le PC redémarre tout seul à la fin !</p>
+  </div>
+  <div class="card">
+    <h2>⚡ Commandes Linux utiles</h2>
+    <code>fastfetch — voir les infos du PC</code>
+    <code>sudo apt install nomdulogiciel — installer un logiciel</code>
+    <code>ls — voir les fichiers du dossier</code>
+    <code>cd nomdudossier — ouvrir un dossier</code>
+    <code>pwd — savoir où tu es</code>
+    <code>clear — effacer le terminal</code>
+    <code>cmatrix — effet Matrix 😎</code>
+  </div>
+</section>
+
+<section id="python">
+  <div class="card">
+    <h2>🐍 C'est quoi Python ?</h2>
+    <p>Python est un langage de programmation simple et puissant. C'est le langage numéro 1 pour débuter, utilisé par les hackers, les développeurs IA et les ingénieurs.</p>
+  </div>
+  <div class="card">
+    <h2>Leçon 1 — Afficher du texte</h2>
+    <p>La commande <strong>print()</strong> affiche du texte à l'écran.</p>
+    <code>print("Bonjour !")</code>
+    <p>Résultat : <strong>Bonjour !</strong></p>
+  </div>
+  <div class="card">
+    <h2>Leçon 2 — Les variables</h2>
+    <p>Une variable c'est une boîte qui stocke une valeur.</p>
+    <code>nom = "Cylian"</code>
+    <code>age = 15</code>
+    <code>print("Je m'appelle", nom, "et j'ai", age, "ans")</code>
+  </div>
+  <div class="card">
+    <h2>Leçon 3 — Les conditions</h2>
+    <p>Le <strong>if/else</strong> permet de faire des choix dans le code.</p>
+    <code>age = 16</code>
+    <code>if age >= 18:</code>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Tu es majeur")</code>
+    <code>else:</code>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Tu es mineur")</code>
+  </div>
+  <div class="card">
+    <h2>Leçon 4 — Les boucles</h2>
+    <p>Une boucle répète une action plusieurs fois.</p>
+    <code>for i in range(5):</code>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Tour numéro", i)</code>
+  </div>
+</section>
+
+<section id="quiz">
+  <div class="quiz">
+    <h3>🎮 Quiz Python — Question 1</h3>
+    <p>Comment afficher "Bonjour" en Python ?</p><br>
+    <button class="btn" onclick="repondre(this,'faux')">echo "Bonjour"</button>
+    <button class="btn" onclick="repondre(this,'vrai')">print("Bonjour")</button>
+    <button class="btn" onclick="repondre(this,'faux')">say("Bonjour")</button>
+    <div class="result" id="r1"></div>
+  </div>
+  <div class="quiz">
+    <h3>🎮 Quiz Python — Question 2</h3>
+    <p>Comment créer une variable "age" avec la valeur 15 ?</p><br>
+    <button class="btn" onclick="repondre2(this,'faux')">variable age = 15</button>
+    <button class="btn" onclick="repondre2(this,'vrai')">age = 15</button>
+    <button class="btn" onclick="repondre2(this,'faux')">int age = 15</button>
+    <div class="result" id="r2"></div>
+  </div>
+  <div class="quiz">
+    <h3>🎮 Quiz Python — Question 3</h3>
+    <p>Que fait "for i in range(3)" ?</p><br>
+    <button class="btn" onclick="repondre3(this,'faux')">Répète 10 fois</button>
+    <button class="btn" onclick="repondre3(this,'vrai')">Répète 3 fois</button>
+    <button class="btn" onclick="repondre3(this,'faux')">Crée 3 variables</button>
+    <div class="result" id="r3"></div>
+  </div>
+</section>
+
+<script>
+function repondre(btn, rep) {
+  const r = document.getElementById('r1');
+  r.style.display = 'block';
+  if(rep === 'vrai') { r.className='result correct'; r.innerHTML='✅ Bravo ! print() est la bonne commande en Python !'; }
+  else { r.className='result wrong'; r.innerHTML='❌ Non ! En Python on utilise print("Bonjour")'; }
+}
+function repondre2(btn, rep) {
+  const r = document.getElementById('r2');
+  r.style.display = 'block';
+  if(rep === 'vrai') { r.className='result correct'; r.innerHTML='✅ Parfait ! En Python on écrit juste nom = valeur'; }
+  else { r.className='result wrong'; r.innerHTML='❌ Non ! En Python c\'est simplement : age = 15'; }
+}
+function repondre3(btn, rep) {
+  const r = document.getElementById('r3');
+  r.style.display = 'block';
+  if(rep === 'vrai') { r.className='result correct'; r.innerHTML='✅ Exact ! range(3) donne 0, 1, 2 donc 3 répétitions'; }
+  else { r.className='result wrong'; r.innerHTML='❌ Non ! range(3) répète 3 fois (0, 1, 2)'; }
+}
+</script>
 </body>
 </html>
