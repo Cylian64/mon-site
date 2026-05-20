@@ -6,65 +6,71 @@
 <title>Guide Ubuntu & Python par Cylian</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:arial;background:#0d1117;color:#fff;overflow-x:hidden}
-nav{background:#161b22;padding:15px 20px;position:sticky;top:0;z-index:100;display:flex;gap:20px;justify-content:center;border-bottom:2px solid #a855f7}
-nav a{color:#a855f7;text-decoration:none;font-weight:bold;transition:0.3s}
-nav a:hover{color:#fff}
-header{background:linear-gradient(135deg,#1a0533,#6a0dad);padding:60px 20px;text-align:center;animation:fadeIn 1s}
-h1{font-size:clamp(24px,5vw,50px);margin-bottom:10px}
-.badge{background:#a855f7;padding:5px 15px;border-radius:20px;font-size:14px}
-section{padding:40px 20px;max-width:800px;margin:0 auto}
-.card{background:#161b22;border-radius:12px;padding:25px;margin:20px 0;border-left:4px solid #a855f7;animation:slideIn 0.5s;transition:transform 0.3s}
-.card:hover{transform:translateX(5px)}
-.card h2{color:#a855f7;margin-bottom:15px}
+body{font-family:arial;background:#0a0a0f;color:#fff;overflow-x:hidden}
+nav{background:rgba(10,10,15,0.9);padding:15px 20px;position:sticky;top:0;z-index:100;display:flex;gap:20px;justify-content:center;border-bottom:2px solid #ff00ff;backdrop-filter:blur(10px)}
+nav a{color:#ff00ff;text-decoration:none;font-weight:bold;transition:0.3s;font-size:18px}
+nav a:hover{color:#00ffff;text-shadow:0 0 10px #00ffff}
+header{background:linear-gradient(135deg,#0a0a0f,#1a0033,#000066);padding:80px 20px;text-align:center;animation:fadeIn 1s;border-bottom:2px solid #ff00ff}
+h1{font-size:clamp(28px,6vw,60px);background:linear-gradient(90deg,#ff00ff,#00ffff,#ff00ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:200%;animation:gradient 3s infinite}
+.badge{background:linear-gradient(90deg,#ff00ff,#7700ff);padding:8px 20px;border-radius:20px;font-size:15px;display:inline-block;margin-top:15px}
+section{padding:40px 20px;max-width:850px;margin:0 auto}
+.card{background:linear-gradient(135deg,#0f0f1a,#1a0033);border-radius:15px;padding:25px;margin:20px 0;border:1px solid #ff00ff33;box-shadow:0 0 20px #ff00ff22;transition:0.3s;animation:slideIn 0.5s}
+.card:hover{transform:translateY(-5px);box-shadow:0 0 30px #ff00ff55;border-color:#ff00ff}
+.card h2{background:linear-gradient(90deg,#ff00ff,#00ffff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:15px;font-size:22px}
 .card p{line-height:1.8;color:#ccc;margin-bottom:10px}
-code{background:#0d1117;color:#00ff88;padding:8px 15px;border-radius:8px;display:block;margin:10px 0;font-size:14px}
-.quiz{background:#161b22;border-radius:12px;padding:25px;margin:20px 0}
-.quiz h3{color:#a855f7;margin-bottom:15px}
-.btn{background:#a855f7;color:#fff;border:none;padding:12px 25px;border-radius:8px;cursor:pointer;margin:5px;font-size:16px;transition:0.3s}
-.btn:hover{background:#7c3aed}
-.result{margin-top:15px;padding:15px;border-radius:8px;display:none}
-.correct{background:#064e3b;color:#00ff88}
-.wrong{background:#450a0a;color:#ff4444}
+code{background:#000;color:#00ff88;padding:10px 15px;border-radius:8px;display:block;margin:8px 0;font-size:14px;border-left:3px solid #00ff88}
+.quiz{background:linear-gradient(135deg,#0f0f1a,#001a33);border-radius:15px;padding:25px;margin:20px 0;border:1px solid #00ffff33;box-shadow:0 0 20px #00ffff22}
+.quiz h3{background:linear-gradient(90deg,#00ffff,#ff00ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:15px;font-size:20px}
+.btn{background:linear-gradient(90deg,#7700ff,#ff00ff);color:#fff;border:none;padding:12px 20px;border-radius:10px;cursor:pointer;margin:5px;font-size:15px;transition:0.3s}
+.btn:hover{transform:scale(1.05);box-shadow:0 0 15px #ff00ff}
+.result{margin-top:15px;padding:15px;border-radius:10px;display:none;font-weight:bold}
+.correct{background:#003322;color:#00ff88;border:1px solid #00ff88}
+.wrong{background:#330000;color:#ff4444;border:1px solid #ff4444}
+#aquarium{background:#000;border-radius:15px;padding:20px;font-family:monospace;font-size:16px;min-height:200px;border:1px solid #00ffff;color:#00ffff;white-space:pre;overflow:hidden;margin:15px 0}
+.run-btn{background:linear-gradient(90deg,#00ff88,#00ffff);color:#000;border:none;padding:15px 30px;border-radius:10px;cursor:pointer;font-size:18px;font-weight:bold;margin:10px 0;transition:0.3s}
+.run-btn:hover{transform:scale(1.05);box-shadow:0 0 20px #00ffff}
+textarea{width:100%;background:#000;color:#00ff88;border:1px solid #00ff88;border-radius:10px;padding:15px;font-family:monospace;font-size:14px;resize:vertical;min-height:120px}
 @keyframes fadeIn{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slideIn{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+@keyframes gradient{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+@keyframes swim{0%{transform:translateX(-50px)}100%{transform:translateX(800px)}}
 </style>
 </head>
 <body>
 <nav>
   <a href="#ubuntu">🐧 Ubuntu</a>
   <a href="#python">🐍 Python</a>
+  <a href="#exercice">🐠 Exercice</a>
   <a href="#quiz">🎮 Quiz</a>
 </nav>
 <header>
   <h1>🐧 Guide Ubuntu & Python</h1>
-  <p>par Cylian</p><br>
-  <span class="badge">Apprends Linux et Python facilement</span>
+  <p style="color:#aaa">par Cylian</p>
+  <span class="badge">✨ Apprends Linux et Python facilement</span>
 </header>
 
 <section id="ubuntu">
   <div class="card">
-    <h2>Étape 1 — Créer la clé USB</h2>
-    <p>Télécharge Ubuntu sur <strong>ubuntu.com</strong> puis ouvre le <strong>Créateur de disque de démarrage</strong> dans les applications.</p>
-    <p>Sélectionne le fichier ISO téléchargé, sélectionne ta clé USB et clique sur <strong>Créer le disque de démarrage</strong>. Attends 10-15 minutes.</p>
+    <h2>⚡ Étape 1 — Créer la clé USB</h2>
+    <p>Télécharge Ubuntu sur <strong style="color:#ff00ff">ubuntu.com</strong> puis ouvre le <strong>Créateur de disque de démarrage</strong>.</p>
+    <p>Sélectionne le fichier ISO, sélectionne ta clé USB et clique sur <strong>Créer</strong>. Attends 10-15 minutes.</p>
   </div>
   <div class="card">
-    <h2>Étape 2 — Démarrer sur la clé</h2>
-    <p>Branche la clé USB sur le PC cible. Allume le PC et appuie rapidement sur <strong>F2</strong> pour accéder au BIOS.</p>
-    <p>Va dans <strong>Boot</strong>, désactive le <strong>Secure Boot</strong> dans Security, sauvegarde avec <strong>F10</strong> et redémarre. Le menu Ubuntu apparaît !</p>
+    <h2>🔧 Étape 2 — Démarrer sur la clé</h2>
+    <p>Branche la clé USB, allume le PC et appuie rapidement sur <strong style="color:#00ffff">F2</strong> pour le BIOS.</p>
+    <p>Va dans <strong>Security</strong>, désactive le <strong>Secure Boot</strong>, sauvegarde avec <strong>F10</strong> et redémarre.</p>
   </div>
   <div class="card">
-    <h2>Étape 3 — Installer Ubuntu</h2>
-    <p>Clique sur <strong>Install Ubuntu</strong>, choisis <strong>Interactive Installation</strong>, puis <strong>Default</strong>, coche les deux cases de logiciels, choisis <strong>Erase disk</strong> et suis les étapes.</p>
-    <p>L'installation dure environ <strong>15-20 minutes</strong>. Le PC redémarre tout seul à la fin !</p>
+    <h2>🚀 Étape 3 — Installer Ubuntu</h2>
+    <p>Clique sur <strong>Install Ubuntu → Interactive → Default</strong>, coche les deux cases, choisis <strong>Erase disk</strong> et suis les étapes.</p>
+    <p>⏱️ L'installation dure <strong style="color:#ff00ff">15-20 minutes</strong> puis le PC redémarre !</p>
   </div>
   <div class="card">
-    <h2>⚡ Commandes Linux utiles</h2>
-    <code>fastfetch — voir les infos du PC</code>
+    <h2>💻 Commandes Linux</h2>
+    <code>fastfetch — infos du PC</code>
     <code>sudo apt install nomdulogiciel — installer un logiciel</code>
-    <code>ls — voir les fichiers du dossier</code>
+    <code>ls — voir les fichiers</code>
     <code>cd nomdudossier — ouvrir un dossier</code>
-    <code>pwd — savoir où tu es</code>
     <code>clear — effacer le terminal</code>
     <code>cmatrix — effet Matrix 😎</code>
   </div>
@@ -73,84 +79,116 @@ code{background:#0d1117;color:#00ff88;padding:8px 15px;border-radius:8px;display
 <section id="python">
   <div class="card">
     <h2>🐍 C'est quoi Python ?</h2>
-    <p>Python est un langage de programmation simple et puissant. C'est le langage numéro 1 pour débuter, utilisé par les hackers, les développeurs IA et les ingénieurs.</p>
+    <p>Python est le langage numéro 1 pour débuter. Utilisé par les hackers, les devs IA, et les ingénieurs du monde entier.</p>
   </div>
   <div class="card">
-    <h2>Leçon 1 — Afficher du texte</h2>
-    <p>La commande <strong>print()</strong> affiche du texte à l'écran.</p>
+    <h2>Leçon 1 — print()</h2>
+    <p>Affiche du texte à l'écran.</p>
     <code>print("Bonjour !")</code>
-    <p>Résultat : <strong>Bonjour !</strong></p>
   </div>
   <div class="card">
-    <h2>Leçon 2 — Les variables</h2>
-    <p>Une variable c'est une boîte qui stocke une valeur.</p>
+    <h2>Leçon 2 — Variables</h2>
+    <p>Une variable stocke une valeur.</p>
     <code>nom = "Cylian"</code>
-    <code>age = 15</code>
-    <code>print("Je m'appelle", nom, "et j'ai", age, "ans")</code>
+    <code>age = 16</code>
+    <code>print("Je m'appelle", nom)</code>
   </div>
   <div class="card">
-    <h2>Leçon 3 — Les conditions</h2>
-    <p>Le <strong>if/else</strong> permet de faire des choix dans le code.</p>
+    <h2>Leçon 3 — if / else</h2>
     <code>age = 16</code>
     <code>if age >= 18:</code>
-    <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Tu es majeur")</code>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Majeur")</code>
     <code>else:</code>
-    <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Tu es mineur")</code>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Mineur")</code>
   </div>
   <div class="card">
-    <h2>Leçon 4 — Les boucles</h2>
-    <p>Une boucle répète une action plusieurs fois.</p>
+    <h2>Leçon 4 — Boucles</h2>
     <code>for i in range(5):</code>
-    <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Tour numéro", i)</code>
+    <code>&nbsp;&nbsp;&nbsp;&nbsp;print("Tour", i)</code>
+  </div>
+</section>
+
+<section id="exercice">
+  <div class="card">
+    <h2>🐠 Exercice — Aquarium Python</h2>
+    <p>Voici un mini aquarium animé en Python. Clique sur <strong style="color:#00ffff">Lancer l'aquarium</strong> pour le voir en action sur le site !</p>
+    <p style="color:#aaa;margin-top:10px">Le code Python équivalent dans le terminal :</p>
+    <code>sudo apt install asciiquarium -y</code>
+    <code>asciiquarium</code>
+    <div id="aquarium">🌊 Clique sur le bouton pour lancer l'aquarium !</div>
+    <button class="run-btn" onclick="lancerAquarium()">🐠 Lancer l'aquarium !</button>
+    <button class="btn" onclick="stopAquarium()">⏹️ Stop</button>
+  </div>
+  <div class="card">
+    <h2>✏️ Écris ton propre code Python</h2>
+    <p>Tape du code Python ici et clique sur <strong style="color:#00ffff">Exécuter</strong> pour simuler le résultat !</p>
+    <textarea id="moncode">print("Bonjour je code en Python !")
+nom = "Cylian"
+print("Je m'appelle", nom)</textarea>
+    <button class="run-btn" onclick="executerCode()">▶️ Exécuter</button>
+    <div id="output" style="background:#000;border-radius:10px;padding:15px;margin-top:10px;color:#00ff88;font-family:monospace;display:none"></div>
   </div>
 </section>
 
 <section id="quiz">
   <div class="quiz">
-    <h3>🎮 Quiz Python — Question 1</h3>
-    <p>Comment afficher "Bonjour" en Python ?</p><br>
-    <button class="btn" onclick="repondre(this,'faux')">echo "Bonjour"</button>
-    <button class="btn" onclick="repondre(this,'vrai')">print("Bonjour")</button>
-    <button class="btn" onclick="repondre(this,'faux')">say("Bonjour")</button>
+    <h3>🎮 Question 1 — Comment afficher du texte ?</h3>
+    <button class="btn" onclick="rep('r1','faux')">echo "Bonjour"</button>
+    <button class="btn" onclick="rep('r1','vrai')">print("Bonjour")</button>
+    <button class="btn" onclick="rep('r1','faux')">say("Bonjour")</button>
     <div class="result" id="r1"></div>
   </div>
   <div class="quiz">
-    <h3>🎮 Quiz Python — Question 2</h3>
-    <p>Comment créer une variable "age" avec la valeur 15 ?</p><br>
-    <button class="btn" onclick="repondre2(this,'faux')">variable age = 15</button>
-    <button class="btn" onclick="repondre2(this,'vrai')">age = 15</button>
-    <button class="btn" onclick="repondre2(this,'faux')">int age = 15</button>
+    <h3>🎮 Question 2 — Créer une variable age = 15 ?</h3>
+    <button class="btn" onclick="rep('r2','faux')">variable age = 15</button>
+    <button class="btn" onclick="rep('r2','vrai')">age = 15</button>
+    <button class="btn" onclick="rep('r2','faux')">int age = 15</button>
     <div class="result" id="r2"></div>
   </div>
   <div class="quiz">
-    <h3>🎮 Quiz Python — Question 3</h3>
-    <p>Que fait "for i in range(3)" ?</p><br>
-    <button class="btn" onclick="repondre3(this,'faux')">Répète 10 fois</button>
-    <button class="btn" onclick="repondre3(this,'vrai')">Répète 3 fois</button>
-    <button class="btn" onclick="repondre3(this,'faux')">Crée 3 variables</button>
+    <h3>🎮 Question 3 — Que fait range(3) ?</h3>
+    <button class="btn" onclick="rep('r3','faux')">Répète 10 fois</button>
+    <button class="btn" onclick="rep('r3','vrai')">Répète 3 fois</button>
+    <button class="btn" onclick="rep('r3','faux')">Crée 3 variables</button>
     <div class="result" id="r3"></div>
   </div>
 </section>
 
 <script>
-function repondre(btn, rep) {
-  const r = document.getElementById('r1');
-  r.style.display = 'block';
-  if(rep === 'vrai') { r.className='result correct'; r.innerHTML='✅ Bravo ! print() est la bonne commande en Python !'; }
-  else { r.className='result wrong'; r.innerHTML='❌ Non ! En Python on utilise print("Bonjour")'; }
+const reponses = {
+  r1:{vrai:'✅ Bravo ! print() est la bonne commande !',faux:'❌ Non ! En Python c\'est print("Bonjour")'},
+  r2:{vrai:'✅ Parfait ! En Python : age = 15',faux:'❌ Non ! C\'est simplement : age = 15'},
+  r3:{vrai:'✅ Exact ! range(3) répète 3 fois : 0, 1, 2',faux:'❌ Non ! range(3) répète 3 fois'}
+};
+function rep(id, val) {
+  const el = document.getElementById(id);
+  el.style.display = 'block';
+  el.className = 'result ' + (val==='vrai'?'correct':'wrong');
+  el.innerHTML = reponses[id][val];
 }
-function repondre2(btn, rep) {
-  const r = document.getElementById('r2');
-  r.style.display = 'block';
-  if(rep === 'vrai') { r.className='result correct'; r.innerHTML='✅ Parfait ! En Python on écrit juste nom = valeur'; }
-  else { r.className='result wrong'; r.innerHTML='❌ Non ! En Python c\'est simplement : age = 15'; }
+
+let aquariumInterval;
+const poissons = ['🐟','🐠','🐡','🦈','🐙','🦑','🐬'];
+function lancerAquarium() {
+  const el = document.getElementById('aquarium');
+  el.innerHTML = '';
+  let frame = 0;
+  aquariumInterval = setInterval(() => {
+    frame++;
+    let scene = '🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊\n\n';
+    for(let i=0;i<4;i++){
+      const p = poissons[Math.floor(Math.random()*poissons.length)];
+      const spaces = ' '.repeat((frame*2 + i*7) % 30);
+      scene += spaces + p + '\n\n';
+    }
+    scene += '\n🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸';
+    el.innerHTML = scene;
+  }, 500);
 }
-function repondre3(btn, rep) {
-  const r = document.getElementById('r3');
-  r.style.display = 'block';
-  if(rep === 'vrai') { r.className='result correct'; r.innerHTML='✅ Exact ! range(3) donne 0, 1, 2 donc 3 répétitions'; }
-  else { r.className='result wrong'; r.innerHTML='❌ Non ! range(3) répète 3 fois (0, 1, 2)'; }
+function stopAquarium() {
+  clearInterval(aquariumInterval);
+  document.getElementById('aquarium').innerHTML = '🌊 Aquarium arrêté. Clique sur Lancer pour recommencer !';
 }
-</script>
-</body>
-</html>
+
+function executerCode() {
+  const code = doc
