@@ -156,8 +156,8 @@ print("Je m'appelle", nom)</textarea>
 
 <script>
 const reponses = {
-  r1:{vrai:'✅ Bravo ! print() est la bonne commande !',faux:'❌ Non ! En Python c\'est print("Bonjour")'},
-  r2:{vrai:'✅ Parfait ! En Python : age = 15',faux:'❌ Non ! C\'est simplement : age = 15'},
+  r1:{vrai:'✅ Bravo ! print() est la bonne commande !',faux:'❌ Non ! En Python c\\'est print("Bonjour")'},
+  r2:{vrai:'✅ Parfait ! En Python : age = 15',faux:'❌ Non ! C\\'est simplement : age = 15'},
   r3:{vrai:'✅ Exact ! range(3) répète 3 fois : 0, 1, 2',faux:'❌ Non ! range(3) répète 3 fois'}
 };
 function rep(id, val) {
@@ -175,13 +175,13 @@ function lancerAquarium() {
   let frame = 0;
   aquariumInterval = setInterval(() => {
     frame++;
-    let scene = '🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊\n\n';
+    let scene = '🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊🌊\\n\\n';
     for(let i=0;i<4;i++){
       const p = poissons[Math.floor(Math.random()*poissons.length)];
       const spaces = ' '.repeat((frame*2 + i*7) % 30);
-      scene += spaces + p + '\n\n';
+      scene += spaces + p + '\\n\\n';
     }
-    scene += '\n🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸';
+    scene += '\\n🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸🪸';
     el.innerHTML = scene;
   }, 500);
 }
@@ -191,4 +191,27 @@ function stopAquarium() {
 }
 
 function executerCode() {
-  const code = doc
+  const code = document.getElementById('moncode').value;
+  const output = document.getElementById('output');
+  output.style.display = 'block';
+  let result = '';
+  const lines = code.split('\\n');
+  const vars = {};
+  for(let line of lines) {
+    line = line.trim();
+    if(line.startsWith('print(')) {
+      let content = line.slice(6,-1);
+      content = content.replace(/,/g,' ');
+      for(let v in vars) content = content.replace(new RegExp(v,'g'), vars[v]);
+      content = content.replace(/["']/g,'');
+      result += content + '\\n';
+    } else if(line.includes('=') && !line.includes('==')) {
+      const parts = line.split('=');
+      vars[parts[0].trim()] = parts[1].trim().replace(/["']/g,'');
+    }
+  }
+  output.innerHTML = result || '(aucun résultat)';
+}
+</script>
+</body>
+</html>
